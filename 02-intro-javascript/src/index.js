@@ -1,23 +1,18 @@
-import heroes, {owner} from './data/heroes'
+import { getHeroesId } from './importExport';
 
-console.log(heroes);
-// const getHeroesId = (id) => {
-//     return heroes.find( (heroes) =>{
-//         if (heroes.id === id) {
-//             return true;
-//         }else{
-//             return false;
-//         }
-//     } )
-// }
+const promesa = new Promise((resolve, reject) => {
+  try {
+    const heroes = getHeroesId(2);
+    resolve(heroes);
+  } catch (err) {
+    reject(err);
+  }
+});
 
-const getHeroesId = (id) => {
-    return heroes.find( (heroes) => heroes.id === id);
-}
-
-const getHeroesByOwner = (owner) => {
-    return heroes.filter( (heroes) => heroes.owner.toLowerCase() === owner.toLowerCase());
-}
-console.log(getHeroesId(2));
-console.log(getHeroesByOwner('dc'));
-console.log(owner);
+promesa
+  .then((heroes) => {
+    console.log('resolve de la promesa', heroes);
+  })
+  .catch((err) => {
+    console.warn('reject de la promesa', err);
+  });

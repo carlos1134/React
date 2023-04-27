@@ -11,11 +11,11 @@ console.log(heroes);
 //     } )
 // }
 
-const getHeroesId = (id) => {
+export const getHeroesId = (id) => {
     return heroes.find( (heroes) => heroes.id === id);
 }
 
-const getHeroesByOwner = (owner) => {
+export const getHeroesByOwner = (owner) => {
     return heroes.filter( (heroes) => heroes.owner.toLowerCase() === owner.toLowerCase());
 }
 console.log(getHeroesId(2));
