@@ -1,8 +1,9 @@
+import AppRouter from "./router/AppRouter"
 
 export const HeroesApp = () => {
   return (
     <div>
-        <h1>hola</h1>
+        <AppRouter/>
     </div>
   )
 }
